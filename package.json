@@ -1,0 +1,19 @@
+{
+  "name": "learnjs",
+  "version": "1.0.0",
+  "description": "",
+  "main": "Json-learn.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TranVanPhat2302/LearnJS.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TranVanPhat2302/LearnJS/issues"
+  },
+  "homepage": "https://github.com/TranVanPhat2302/LearnJS#readme"
+}

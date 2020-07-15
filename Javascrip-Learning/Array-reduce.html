@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+ <script>
+     // Khai bao mot array co 3 gia tri
+     let orders=[
+         {name:'A', quantity:2 , price:1000},
+         {name:'B', quantity:1 , price:500},
+         {name:'A', quantity:2 , price:850}
+     ]
+     // Su dung array.map de tinh toan tong gia tri cua 2 bien quantity , price
+    let SingleProductPrice = orders.map(function(x){
+        return x.quantity * x.price;
+    })
+    // Su dung array.reduce de tinh tong gia tri cua don hang`
+     let totalPrice = SingleProductPrice.reduce(function(a,b){
+        return a + b;
+     });
+console.log(totalPrice);
+
+     //Cach 2
+     let totalPrice2 = orders.reduce(function(currenttotal, productprice){
+         return currenttotal + productprice.quantity * productprice.price;
+     },0);
+     console.log(totalPrice2)
+
+     
+
+ </script>
+
+</body>

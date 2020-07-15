@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<head></head>
+<body>
+ <script>
+     // Khai bao mot array co 3 gia tri
+ /*     let product = [ 
+         {name: "TVSamSung", price: 5000 , stock: 10},
+         {name: "TVDigitech", price: 4100 , stock: 13},
+         {name: "TVLG", price: 4300 , stock: 15},
+         {name: "TVLG", price: 4200 , stock: 15},
+         {name: "TVLG", price: 4350 , stock: 15},
+         {name: "TVLG", price: 4359 , stock: 15},
+      ];
+
+    product.sort(function(a, b) {
+        console.log( a.price + " <> " + b.price );
+         return b.price - a.price; });
+  
+    console.log(product);  // 1, 2, 15
+     
+
+      */
+
+      function hocTieng (tieng){
+    return new Promise(function(resolve , reject){
+        if(tieng === Anh){
+            resolve("Hoc Dung Tieng roi")
+        }else{
+            reject("Hoc Tieng Anh Di")
+        }
+    });
+
+    hocTieng(Anh)
+    .then(function(){
+        console.log(hoctienganh);
+    })
+    .catch(function(){
+        console.log(err);
+    })
+}
+
+ </script>
+
+</body>
