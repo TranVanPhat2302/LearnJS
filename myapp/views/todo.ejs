@@ -1,46 +1,46 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <header><%= title %></header>
-    <link rel='stylesheet' href='/stylesheets/todostylesheet.css' />
-  </head>
-  <body>
+<html lang="en" dir="ltr">
 
-    <div id="myDIV" class="header">
-        <h2>My To Do List</h2>
-        <input type="text" id="myInput" placeholder="Title...">
-        <span onclick="newElement()" class="addBtn">Add</span>
-      </div>
+<head>
+  <meta charset="utf-8">
+  <header><%= title %></header>
+  <link rel="stylesheet" type="text/css"  href="../stylesheets/style.css" >
+</head>
+
+<body>
+  <div id="container" class="header">
+    <form action="/todolist" method="POST">
+      <label for="tdate">Date</label><br><br>
+      <input id="fdate" type="date" name="fdate"><br><br><br><br>
+      <label for="tname">What you do</label><br><br>
+      <input type="text" id="fname" name="fname" placeholder="Add task"><br><br>
+      <input type="submit" value="Add" name="Addbtn"><br><br>
+
+      <% if (success === true) { %>
+      <script>
+        alert("Added Success")
+      </script>
+      <%} %>
       
-      <ul id="myUL">
-        <li>Hit the gym</li>
-        <li class="checked">Pay bills</li>
-        <li>Meet George</li>
-        <li>Buy eggs</li>
-        <li>Read a book</li>
-        <li>Organize office</li>
-      </ul>
-
-      <form action="/action_page.php" method="get">
-        <label for="tdate">Date</label>
-        <input id="fdate"  type="text" name="fname" placeholder="Add Date"><br><br>
-        <label for="tname">What you do</label>
-        <input type="text" id="lname" name="lname" placeholder="Add task"><br><br>
-        <input type="submit" value="Submit"><br>
-      </form>
-
     
+    </form>
 
 
+    <div>
+      <% if(items && items.length > 0 ) { %>
+      <!-- <% console.log(items.length) %> -->
+      <% var date = new Date() %>
+      <% console.log(typeof(date)) %>
+      <ul>
+        <% for(var i = 1; i <= items.length; i ++) { %>
+        <li> <span> <i class="fa fa-trash"></i> </span><%= items[i-1].tddate.getDate() %>-<%= items[i-1].tddate.getMonth() %>-<%= items[i-1].tddate.getFullYear() %>  :    <%= items[i-1]['tdname'] %> </li>
+        <% } %>
+      </ul>
+      <% } %>
+    </div>
+  </div>
 
-    <br><br>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
-  </body>
+  <script type="text/javascript" src="../javascripts/script.js"></script>
+</body>
+
 </html>
-
-
-
-
-
-
