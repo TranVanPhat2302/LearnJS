@@ -3,13 +3,15 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
-
+const bodyParser = require('body-parser');
 
 //
 var qb = require('./modules/data/config');
 
 //Router Module
 var todoRouter = require('./routes/todolist'); 
+var apitodoroute = require('./api/routes/todolist.route');
+
 
 var app = express();
 
@@ -21,10 +23,11 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
-app.use(express.static(path.join(__dirname, 'public'))); //dẫn sẵn link tới folder Public
+app.use(express.static(path.join(__dirname, 'public'))); 
 
 app.use('/', todoRouter);
 app.use('/todolist', todoRouter);
+app.use('/api/todolist', apitodoroute);
 
 
 qb.connect((err)=>{
@@ -39,7 +42,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-// error handler
+// error handler //Truyền cho Client lỗi 500 khi có lỗi server
 app.use(function(err, req, res, next) {
   // set locals, only providing error in development
   res.locals.message = err.message;
@@ -47,7 +50,7 @@ app.use(function(err, req, res, next) {
  
   // render the error page
   res.status(err.status || 500);
-  // res.render('error');
+  res.render('error');
 });
 
 module.exports = app;
